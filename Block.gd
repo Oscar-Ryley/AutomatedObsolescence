@@ -8,9 +8,6 @@ var enabled = true
 
 var num_in = 0
 
-func _ready():
-	get_node("/root/Scene/Grid").block_disable.connect(_disable)
-
 func _on_area_entered(body):
 	if enabled == true:
 		num_in += 1
