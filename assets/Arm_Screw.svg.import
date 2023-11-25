@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0vqpiy6tqfr"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://by6oce8l22817"
+path="res://.godot/imported/Arm_Screw.svg-70e335f2d11c0e7b9e0a9ffb9ae41f2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://assets/Arm_Screw.svg"
+dest_files=["res://.godot/imported/Arm_Screw.svg-70e335f2d11c0e7b9e0a9ffb9ae41f2f.ctex"]
 
 [params]
 

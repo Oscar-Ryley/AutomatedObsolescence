@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0vqpiy6tqfr"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://cllqwb3atajk0"
+path="res://.godot/imported/Arm_Stem.svg-1cf72075815ea2118b2f2653c7c1af70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://assets/Arm_Stem.svg"
+dest_files=["res://.godot/imported/Arm_Stem.svg-1cf72075815ea2118b2f2653c7c1af70.ctex"]
 
 [params]
 
