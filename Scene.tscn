@@ -1,12 +1,51 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj2xap34v028i"]
+[gd_scene load_steps=23 format=3 uid="uid://dj2xap34v028i"]
 
 [ext_resource type="Texture2D" uid="uid://bomku3lpcadg" path="res://assets/Background.svg" id="1_hxxbx"]
-[ext_resource type="Texture2D" uid="uid://ibwvxplkfilp" path="res://assets/Ground.svg" id="2_fm1p5"]
+[ext_resource type="Texture2D" uid="uid://ibwvxplkfilp" path="res://assets/Ground.svg" id="2_0uyu4"]
 [ext_resource type="Texture2D" uid="uid://cldk54gufhnsl" path="res://assets/Arm_Base.svg" id="3_bmvrp"]
 [ext_resource type="Texture2D" uid="uid://cllqwb3atajk0" path="res://assets/Arm_Stem.svg" id="4_bmtic"]
+[ext_resource type="Script" path="res://ClawGrab.gd" id="5_0lklm"]
 [ext_resource type="Texture2D" uid="uid://dapibj4uuk02p" path="res://assets/Arm_Grabber.svg" id="6_pg3fa"]
 [ext_resource type="Texture2D" uid="uid://t04idosjio5r" path="res://assets/Arm_Grabber2.svg" id="7_8qs7r"]
 [ext_resource type="Texture2D" uid="uid://bqtyatlbocr33" path="res://assets/Block.svg" id="8_hm1oa"]
+[ext_resource type="Script" path="res://ArmStem.gd" id="8_r8xyg"]
+[ext_resource type="Texture2D" uid="uid://xmcgdcl6kltl" path="res://assets/Block_Transparent.svg" id="9_vteg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1p6r3"]
+size = Vector2(1032.5, 1587)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ss5ae"]
+size = Vector2(3996, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpypo"]
+size = Vector2(1038, 1600)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48n0i"]
+size = Vector2(3992, 559)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l4k36"]
+radius = 2.23597
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3o26"]
+size = Vector2(52.8162, 85.1218)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fmx3"]
+size = Vector2(188.532, 48.3736)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srijq"]
+size = Vector2(5382, 55.9999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r8t5"]
+size = Vector2(77.9996, 1124.41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6aso"]
+size = Vector2(71, 2864)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx1to"]
+size = Vector2(3767, 82.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj80m"]
+size = Vector2(134, 134)
 
 [node name="Node2D" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
@@ -16,9 +55,27 @@ z_index = -5
 texture = ExtResource("1_hxxbx")
 centered = false
 
-[node name="Ground" type="Sprite2D" parent="Background"]
-position = Vector2(956, 1042)
-texture = ExtResource("2_fm1p5")
+[node name="StaticBody2D" type="StaticBody2D" parent="Background"]
+
+[node name="Ground" type="Sprite2D" parent="Background/StaticBody2D"]
+position = Vector2(959, 1044)
+texture = ExtResource("2_0uyu4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(-516.75, 756.5)
+shape = SubResource("RectangleShape2D_1p6r3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(962, -22.5)
+shape = SubResource("RectangleShape2D_ss5ae")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(2437, 750)
+shape = SubResource("RectangleShape2D_gpypo")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(960, 1270.5)
+shape = SubResource("RectangleShape2D_48n0i")
 
 [node name="ArmBase" type="Sprite2D" parent="."]
 position = Vector2(225, 853)
@@ -26,18 +83,167 @@ texture = ExtResource("3_bmvrp")
 
 [node name="Arm" type="Node2D" parent="ArmBase"]
 
-[node name="ArmGrabber" type="Sprite2D" parent="ArmBase/Arm"]
-position = Vector2(773.958, -557.069)
-rotation = -0.16436
+[node name="CharacterBody2D" type="CharacterBody2D" parent="ArmBase/Arm"]
+z_index = 3
+position = Vector2(775, -557)
+rotation = 2.10138
+script = ExtResource("5_0lklm")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="ArmBase/Arm/CharacterBody2D"]
+texture_filter = 1
+
+[node name="ArmGrabber" type="Sprite2D" parent="ArmBase/Arm/CharacterBody2D/CharacterBody2D"]
+position = Vector2(0.46814, 0.93396)
+rotation = -2.26574
 texture = ExtResource("6_pg3fa")
 centered = false
 offset = Vector2(-25, -30)
 
-[node name="ArmGrabber2" type="Sprite2D" parent="ArmBase/Arm"]
-position = Vector2(774.84, -556.598)
-rotation = 1.17954
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmBase/Arm/CharacterBody2D/CharacterBody2D"]
+position = Vector2(0.00012207, 0.00012207)
+shape = SubResource("CircleShape2D_l4k36")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ArmBase/Arm/CharacterBody2D/CharacterBody2D"]
+position = Vector2(152.745, -169.884)
+rotation = 1.08345
+shape = SubResource("RectangleShape2D_l3o26")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="ArmBase/Arm/CharacterBody2D/CharacterBody2D"]
+position = Vector2(-5.29922, -99.907)
+rotation = -1.58477
+shape = SubResource("RectangleShape2D_7fmx3")
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="ArmBase/Arm/CharacterBody2D"]
+texture_filter = 1
+position = Vector2(0.42749, -0.0653076)
+rotation = -0.921845
+
+[node name="ArmGrabber2" type="Sprite2D" parent="ArmBase/Arm/CharacterBody2D/CharacterBody2D2"]
+position = Vector2(0.00012207, 6.10352e-05)
 texture = ExtResource("7_8qs7r")
 offset = Vector2(-65, 115)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmBase/Arm/CharacterBody2D/CharacterBody2D2"]
+position = Vector2(-27.5314, 220.435)
+rotation = -0.17898
+shape = SubResource("RectangleShape2D_l3o26")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ArmBase/Arm/CharacterBody2D/CharacterBody2D2"]
+position = Vector2(-82.3208, 160.631)
+rotation = -2.23721
+shape = SubResource("RectangleShape2D_7fmx3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ArmBase/Arm/CharacterBody2D/CharacterBody2D2"]
+position = Vector2(-75.0177, 55.5803)
+rotation = -0.675575
+shape = SubResource("RectangleShape2D_7fmx3")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="ArmBase/Arm/CharacterBody2D"]
+position = Vector2(66.3233, -173.341)
+rotation = -0.0200946
+shape = SubResource("RectangleShape2D_7fmx3")
+
+[node name="RemoteTransform2D1" type="RemoteTransform2D" parent="ArmBase/Arm/CharacterBody2D"]
+position = Vector2(-2.73711, -0.71283)
+rotation = -2.10138
+remote_path = NodePath("../ArmStem1")
+update_rotation = false
+
+[node name="ArmStem1" type="Sprite2D" parent="ArmBase/Arm/CharacterBody2D"]
+z_index = 1
+position = Vector2(-2.73711, -0.71283)
+rotation = -2.10138
+texture = ExtResource("4_bmtic")
+centered = false
+offset = Vector2(-50, -368)
+script = ExtResource("8_r8xyg")
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1"]
+position = Vector2(-2.99988, -325)
+rotation = -2.10138
+remote_path = NodePath("../ArmStem2")
+update_rotation = false
+
+[node name="ArmStem2" type="Sprite2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1"]
+z_index = 1
+position = Vector2(-2.99988, -325)
+texture = ExtResource("4_bmtic")
+centered = false
+offset = Vector2(-50, -368)
+
+[node name="RemoteTransform2D3" type="RemoteTransform2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2"]
+position = Vector2(-1, -312)
+rotation = 2.08043
+remote_path = NodePath("../ArmStem3")
+update_rotation = false
+
+[node name="ArmStem3" type="Sprite2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2"]
+z_index = 1
+position = Vector2(-1, -312)
+texture = ExtResource("4_bmtic")
+centered = false
+offset = Vector2(-50, -368)
+
+[node name="RemoteTransform2D4" type="RemoteTransform2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3"]
+position = Vector2(-1, -312)
+rotation = 2.08043
+remote_path = NodePath("../ArmStem4")
+update_rotation = false
+
+[node name="ArmStem4" type="Sprite2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3"]
+z_index = 1
+position = Vector2(-1, -312)
+texture = ExtResource("4_bmtic")
+centered = false
+offset = Vector2(-50, -368)
+
+[node name="RemoteTransform2D5" type="RemoteTransform2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4"]
+position = Vector2(-1, -312)
+rotation = 2.08043
+remote_path = NodePath("../RigidBody2D")
+update_rotation = false
+
+[node name="RigidBody2D" type="RigidBody2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4"]
+position = Vector2(-1, -312)
+mass = 0.01
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D"]
+position = Vector2(14, -2.00018)
+shape = SubResource("RectangleShape2D_srijq")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4"]
+position = Vector2(3137, -318)
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D2"]
+position = Vector2(0, 1382)
+scale = Vector2(1, 2.36)
+shape = SubResource("RectangleShape2D_5r8t5")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4"]
+position = Vector2(-3148, -327)
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D3"]
+position = Vector2(1.00024, 1492)
+shape = SubResource("RectangleShape2D_s6aso")
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4"]
+position = Vector2(-99, 2918)
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D4"]
+position = Vector2(24, -248.75)
+shape = SubResource("RectangleShape2D_vx1to")
 
 [node name="ArmStem" type="Sprite2D" parent="ArmBase/Arm"]
 z_index = 1
@@ -63,27 +269,350 @@ texture = ExtResource("4_bmtic")
 centered = false
 offset = Vector2(-50, -368)
 
-[node name="ArmStem5" type="Sprite2D" parent="ArmBase/Arm"]
-z_index = 1
-position = Vector2(773, -1196)
-texture = ExtResource("4_bmtic")
-centered = false
-offset = Vector2(-50, -368)
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+z_index = 6
+position = Vector2(539, 346)
 
-[node name="ArmStem4" type="Sprite2D" parent="ArmBase/Arm"]
-z_index = 1
-position = Vector2(774, -884)
-texture = ExtResource("4_bmtic")
-centered = false
-offset = Vector2(-50, -368)
-
-[node name="ArmStem1" type="Sprite2D" parent="ArmBase/Arm"]
-z_index = 1
-position = Vector2(777, -559)
-texture = ExtResource("4_bmtic")
-centered = false
-offset = Vector2(-50, -368)
-
-[node name="Block" type="Sprite2D" parent="."]
-position = Vector2(1350, 629)
+[node name="Block" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Grid" type="Node2D" parent="."]
+z_index = -4
+
+[node name="Node2D" type="Node2D" parent="Grid"]
+
+[node name="BlockTransparent" type="Sprite2D" parent="Grid/Node2D"]
+position = Vector2(1829.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent2" type="Sprite2D" parent="Grid/Node2D"]
+position = Vector2(1693.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent3" type="Sprite2D" parent="Grid/Node2D"]
+position = Vector2(1557.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent4" type="Sprite2D" parent="Grid/Node2D"]
+position = Vector2(1421.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent5" type="Sprite2D" parent="Grid/Node2D"]
+position = Vector2(1285.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent6" type="Sprite2D" parent="Grid/Node2D"]
+position = Vector2(1149.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="Node2D2" type="Node2D" parent="Grid"]
+position = Vector2(-1161, -1055)
+
+[node name="BlockTransparent" type="Sprite2D" parent="Grid/Node2D2"]
+position = Vector2(2990.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent2" type="Sprite2D" parent="Grid/Node2D2"]
+position = Vector2(2854.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent3" type="Sprite2D" parent="Grid/Node2D2"]
+position = Vector2(2718.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent4" type="Sprite2D" parent="Grid/Node2D2"]
+position = Vector2(2582.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent5" type="Sprite2D" parent="Grid/Node2D2"]
+position = Vector2(2446.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent6" type="Sprite2D" parent="Grid/Node2D2"]
+position = Vector2(2310.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="Node2D3" type="Node2D" parent="Grid"]
+position = Vector2(-1, -270)
+
+[node name="BlockTransparent" type="Sprite2D" parent="Grid/Node2D3"]
+position = Vector2(1829.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent2" type="Sprite2D" parent="Grid/Node2D3"]
+position = Vector2(1693.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent3" type="Sprite2D" parent="Grid/Node2D3"]
+position = Vector2(1557.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent4" type="Sprite2D" parent="Grid/Node2D3"]
+position = Vector2(1421.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent5" type="Sprite2D" parent="Grid/Node2D3"]
+position = Vector2(1285.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent6" type="Sprite2D" parent="Grid/Node2D3"]
+position = Vector2(1149.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="Node2D4" type="Node2D" parent="Grid"]
+position = Vector2(-1162, -1325)
+
+[node name="BlockTransparent" type="Sprite2D" parent="Grid/Node2D4"]
+position = Vector2(2990.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent2" type="Sprite2D" parent="Grid/Node2D4"]
+position = Vector2(2854.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent3" type="Sprite2D" parent="Grid/Node2D4"]
+position = Vector2(2718.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent4" type="Sprite2D" parent="Grid/Node2D4"]
+position = Vector2(2582.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent5" type="Sprite2D" parent="Grid/Node2D4"]
+position = Vector2(2446.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent6" type="Sprite2D" parent="Grid/Node2D4"]
+position = Vector2(2310.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="Node2D5" type="Node2D" parent="Grid"]
+position = Vector2(-1, -540)
+
+[node name="BlockTransparent" type="Sprite2D" parent="Grid/Node2D5"]
+position = Vector2(1829.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent2" type="Sprite2D" parent="Grid/Node2D5"]
+position = Vector2(1693.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent3" type="Sprite2D" parent="Grid/Node2D5"]
+position = Vector2(1557.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent4" type="Sprite2D" parent="Grid/Node2D5"]
+position = Vector2(1421.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent5" type="Sprite2D" parent="Grid/Node2D5"]
+position = Vector2(1285.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent6" type="Sprite2D" parent="Grid/Node2D5"]
+position = Vector2(1149.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="Node2D6" type="Node2D" parent="Grid"]
+position = Vector2(-1162, -1595)
+
+[node name="BlockTransparent" type="Sprite2D" parent="Grid/Node2D6"]
+position = Vector2(2990.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent2" type="Sprite2D" parent="Grid/Node2D6"]
+position = Vector2(2854.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent3" type="Sprite2D" parent="Grid/Node2D6"]
+position = Vector2(2718.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent4" type="Sprite2D" parent="Grid/Node2D6"]
+position = Vector2(2582.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent5" type="Sprite2D" parent="Grid/Node2D6"]
+position = Vector2(2446.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent6" type="Sprite2D" parent="Grid/Node2D6"]
+position = Vector2(2310.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="Grid2" type="Node2D" parent="."]
+position = Vector2(-169, 661)
+scale = Vector2(0.189245, 0.189245)
+
+[node name="Node2D" type="Node2D" parent="Grid2"]
+
+[node name="BlockTransparent" type="Sprite2D" parent="Grid2/Node2D"]
+position = Vector2(1829.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent2" type="Sprite2D" parent="Grid2/Node2D"]
+position = Vector2(1693.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent3" type="Sprite2D" parent="Grid2/Node2D"]
+position = Vector2(1557.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent4" type="Sprite2D" parent="Grid2/Node2D"]
+position = Vector2(1421.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent5" type="Sprite2D" parent="Grid2/Node2D"]
+position = Vector2(1285.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent6" type="Sprite2D" parent="Grid2/Node2D"]
+position = Vector2(1149.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="Node2D2" type="Node2D" parent="Grid2"]
+position = Vector2(-1161, -1055)
+
+[node name="BlockTransparent" type="Sprite2D" parent="Grid2/Node2D2"]
+position = Vector2(2990.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent2" type="Sprite2D" parent="Grid2/Node2D2"]
+position = Vector2(2854.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent3" type="Sprite2D" parent="Grid2/Node2D2"]
+position = Vector2(2718.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent4" type="Sprite2D" parent="Grid2/Node2D2"]
+position = Vector2(2582.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent5" type="Sprite2D" parent="Grid2/Node2D2"]
+position = Vector2(2446.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent6" type="Sprite2D" parent="Grid2/Node2D2"]
+position = Vector2(2310.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="Node2D3" type="Node2D" parent="Grid2"]
+position = Vector2(-1, -270)
+
+[node name="BlockTransparent" type="Sprite2D" parent="Grid2/Node2D3"]
+position = Vector2(1829.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent2" type="Sprite2D" parent="Grid2/Node2D3"]
+position = Vector2(1693.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent3" type="Sprite2D" parent="Grid2/Node2D3"]
+position = Vector2(1557.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent4" type="Sprite2D" parent="Grid2/Node2D3"]
+position = Vector2(1421.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent5" type="Sprite2D" parent="Grid2/Node2D3"]
+position = Vector2(1285.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent6" type="Sprite2D" parent="Grid2/Node2D3"]
+position = Vector2(1149.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="Node2D4" type="Node2D" parent="Grid2"]
+position = Vector2(-1162, -1325)
+
+[node name="BlockTransparent" type="Sprite2D" parent="Grid2/Node2D4"]
+position = Vector2(2990.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent2" type="Sprite2D" parent="Grid2/Node2D4"]
+position = Vector2(2854.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent3" type="Sprite2D" parent="Grid2/Node2D4"]
+position = Vector2(2718.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent4" type="Sprite2D" parent="Grid2/Node2D4"]
+position = Vector2(2582.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent5" type="Sprite2D" parent="Grid2/Node2D4"]
+position = Vector2(2446.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent6" type="Sprite2D" parent="Grid2/Node2D4"]
+position = Vector2(2310.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="Node2D5" type="Node2D" parent="Grid2"]
+position = Vector2(-1, -540)
+
+[node name="BlockTransparent" type="Sprite2D" parent="Grid2/Node2D5"]
+position = Vector2(1829.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent2" type="Sprite2D" parent="Grid2/Node2D5"]
+position = Vector2(1693.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent3" type="Sprite2D" parent="Grid2/Node2D5"]
+position = Vector2(1557.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent4" type="Sprite2D" parent="Grid2/Node2D5"]
+position = Vector2(1421.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent5" type="Sprite2D" parent="Grid2/Node2D5"]
+position = Vector2(1285.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent6" type="Sprite2D" parent="Grid2/Node2D5"]
+position = Vector2(1149.5, 922.5)
+texture = ExtResource("9_vteg5")
+
+[node name="Node2D6" type="Node2D" parent="Grid2"]
+position = Vector2(-1162, -1595)
+
+[node name="BlockTransparent" type="Sprite2D" parent="Grid2/Node2D6"]
+position = Vector2(2990.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent2" type="Sprite2D" parent="Grid2/Node2D6"]
+position = Vector2(2854.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent3" type="Sprite2D" parent="Grid2/Node2D6"]
+position = Vector2(2718.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent4" type="Sprite2D" parent="Grid2/Node2D6"]
+position = Vector2(2582.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent5" type="Sprite2D" parent="Grid2/Node2D6"]
+position = Vector2(2446.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[node name="BlockTransparent6" type="Sprite2D" parent="Grid2/Node2D6"]
+position = Vector2(2310.5, 1842.5)
+texture = ExtResource("9_vteg5")
+
+[connection signal="body_entered" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_body_entered"]
+[connection signal="body_exited" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_body_exited"]
+[connection signal="body_entered" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D2" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_2_body_entered"]
+[connection signal="body_exited" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D2" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_2_body_exited"]
+[connection signal="body_entered" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D3" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_3_body_entered"]
+[connection signal="body_exited" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D3" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_3_body_exited"]
+[connection signal="body_entered" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D4" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_4_body_entered"]
+[connection signal="body_exited" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D4" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_4_body_exited"]
