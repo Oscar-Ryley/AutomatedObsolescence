@@ -297,13 +297,17 @@ texture = ExtResource("8_hm1oa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_yj80m")
 
+[node name="Area2D" type="Area2D" parent="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
 [node name="Grid" type="Node2D" parent="."]
 z_index = -4
 
 [node name="Node2D" type="Node2D" parent="Grid"]
 
 [node name="Block1-1" type="Area2D" parent="Grid/Node2D"]
-priority = 1
 script = ExtResource("10_i061e")
 
 [node name="BlockTransparent" type="Sprite2D" parent="Grid/Node2D/Block1-1"]
@@ -311,7 +315,7 @@ position = Vector2(1829.5, 922.5)
 texture = ExtResource("9_vteg5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid/Node2D/Block1-1"]
-position = Vector2(1829, 922)
+position = Vector2(1830, 923)
 shape = SubResource("RectangleShape2D_ge5yp")
 
 [node name="BlockTransparent2" type="Sprite2D" parent="Grid/Node2D"]
@@ -633,36 +637,6 @@ texture = ExtResource("9_vteg5")
 [node name="BlockTransparent6" type="Sprite2D" parent="Grid2/Node2D6"]
 position = Vector2(2310.5, 1842.5)
 texture = ExtResource("9_vteg5")
-
-[node name="RigidBody2D2" type="RigidBody2D" parent="."]
-z_index = 6
-position = Vector2(539, 346)
-
-[node name="Block" type="Sprite2D" parent="RigidBody2D2"]
-texture = ExtResource("8_hm1oa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
-shape = SubResource("RectangleShape2D_yj80m")
-
-[node name="RigidBody2D3" type="RigidBody2D" parent="."]
-z_index = 6
-position = Vector2(539, 346)
-
-[node name="Block" type="Sprite2D" parent="RigidBody2D3"]
-texture = ExtResource("8_hm1oa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
-shape = SubResource("RectangleShape2D_yj80m")
-
-[node name="RigidBody2D4" type="RigidBody2D" parent="."]
-z_index = 6
-position = Vector2(539, 346)
-
-[node name="Block" type="Sprite2D" parent="RigidBody2D4"]
-texture = ExtResource("8_hm1oa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
-shape = SubResource("RectangleShape2D_yj80m")
 
 [connection signal="toggled" from="FullScreenButton" to="FullScreenButton" method="_on_toggled"]
 [connection signal="body_entered" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_body_entered"]
