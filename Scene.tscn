@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://drv60fowrrvso"]
+[gd_scene load_steps=25 format=3 uid="uid://drv60fowrrvso"]
 
 [ext_resource type="Texture2D" uid="uid://sxrimxaq7cjy" path="res://assets/Button_Fullscreen.svg" id="1_1mj8h"]
 [ext_resource type="FontFile" uid="uid://t7myjio8eg4q" path="res://fonts/MouldyCheeseRegular-WyMWG.ttf" id="1_7hlp8"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://dapibj4uuk02p" path="res://assets/Arm_Grabber.svg" id="6_pg3fa"]
 [ext_resource type="Texture2D" uid="uid://t04idosjio5r" path="res://assets/Arm_Grabber2.svg" id="7_8qs7r"]
 [ext_resource type="Script" path="res://ArmStem.gd" id="8_r8xyg"]
-[ext_resource type="Texture2D" uid="uid://xmcgdcl6kltl" path="res://assets/Block_Transparent.svg" id="9_vteg5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1p6r3"]
 size = Vector2(1032.5, 1587)
@@ -99,172 +98,6 @@ shape = SubResource("RectangleShape2D_gpypo")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D"]
 position = Vector2(960, 1270.5)
 shape = SubResource("RectangleShape2D_48n0i")
-
-[node name="SignGrid" type="Node2D" parent="."]
-z_index = 1
-position = Vector2(-169, 661)
-scale = Vector2(0.189245, 0.189245)
-
-[node name="Node2D" type="Node2D" parent="SignGrid"]
-
-[node name="BlockTransparent" type="Sprite2D" parent="SignGrid/Node2D"]
-position = Vector2(1829.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent2" type="Sprite2D" parent="SignGrid/Node2D"]
-position = Vector2(1693.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent3" type="Sprite2D" parent="SignGrid/Node2D"]
-position = Vector2(1557.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent4" type="Sprite2D" parent="SignGrid/Node2D"]
-position = Vector2(1421.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent5" type="Sprite2D" parent="SignGrid/Node2D"]
-position = Vector2(1285.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent6" type="Sprite2D" parent="SignGrid/Node2D"]
-position = Vector2(1149.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="Node2D2" type="Node2D" parent="SignGrid"]
-position = Vector2(-1161, -1055)
-
-[node name="BlockTransparent" type="Sprite2D" parent="SignGrid/Node2D2"]
-position = Vector2(2990.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent2" type="Sprite2D" parent="SignGrid/Node2D2"]
-position = Vector2(2854.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent3" type="Sprite2D" parent="SignGrid/Node2D2"]
-position = Vector2(2718.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent4" type="Sprite2D" parent="SignGrid/Node2D2"]
-position = Vector2(2582.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent5" type="Sprite2D" parent="SignGrid/Node2D2"]
-position = Vector2(2446.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent6" type="Sprite2D" parent="SignGrid/Node2D2"]
-position = Vector2(2310.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="Node2D3" type="Node2D" parent="SignGrid"]
-position = Vector2(-1, -270)
-
-[node name="BlockTransparent" type="Sprite2D" parent="SignGrid/Node2D3"]
-position = Vector2(1829.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent2" type="Sprite2D" parent="SignGrid/Node2D3"]
-position = Vector2(1693.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent3" type="Sprite2D" parent="SignGrid/Node2D3"]
-position = Vector2(1557.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent4" type="Sprite2D" parent="SignGrid/Node2D3"]
-position = Vector2(1421.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent5" type="Sprite2D" parent="SignGrid/Node2D3"]
-position = Vector2(1285.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent6" type="Sprite2D" parent="SignGrid/Node2D3"]
-position = Vector2(1149.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="Node2D4" type="Node2D" parent="SignGrid"]
-position = Vector2(-1162, -1325)
-
-[node name="BlockTransparent" type="Sprite2D" parent="SignGrid/Node2D4"]
-position = Vector2(2990.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent2" type="Sprite2D" parent="SignGrid/Node2D4"]
-position = Vector2(2854.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent3" type="Sprite2D" parent="SignGrid/Node2D4"]
-position = Vector2(2718.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent4" type="Sprite2D" parent="SignGrid/Node2D4"]
-position = Vector2(2582.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent5" type="Sprite2D" parent="SignGrid/Node2D4"]
-position = Vector2(2446.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent6" type="Sprite2D" parent="SignGrid/Node2D4"]
-position = Vector2(2310.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="Node2D5" type="Node2D" parent="SignGrid"]
-position = Vector2(-1, -540)
-
-[node name="BlockTransparent" type="Sprite2D" parent="SignGrid/Node2D5"]
-position = Vector2(1829.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent2" type="Sprite2D" parent="SignGrid/Node2D5"]
-position = Vector2(1693.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent3" type="Sprite2D" parent="SignGrid/Node2D5"]
-position = Vector2(1557.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent4" type="Sprite2D" parent="SignGrid/Node2D5"]
-position = Vector2(1421.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent5" type="Sprite2D" parent="SignGrid/Node2D5"]
-position = Vector2(1285.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent6" type="Sprite2D" parent="SignGrid/Node2D5"]
-position = Vector2(1149.5, 922.5)
-texture = ExtResource("9_vteg5")
-
-[node name="Node2D6" type="Node2D" parent="SignGrid"]
-position = Vector2(-1162, -1595)
-
-[node name="BlockTransparent" type="Sprite2D" parent="SignGrid/Node2D6"]
-position = Vector2(2990.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent2" type="Sprite2D" parent="SignGrid/Node2D6"]
-position = Vector2(2854.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent3" type="Sprite2D" parent="SignGrid/Node2D6"]
-position = Vector2(2718.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent4" type="Sprite2D" parent="SignGrid/Node2D6"]
-position = Vector2(2582.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent5" type="Sprite2D" parent="SignGrid/Node2D6"]
-position = Vector2(2446.5, 1842.5)
-texture = ExtResource("9_vteg5")
-
-[node name="BlockTransparent6" type="Sprite2D" parent="SignGrid/Node2D6"]
-position = Vector2(2310.5, 1842.5)
-texture = ExtResource("9_vteg5")
 
 [node name="ArmBase" type="Sprite2D" parent="."]
 position = Vector2(225, 853)
