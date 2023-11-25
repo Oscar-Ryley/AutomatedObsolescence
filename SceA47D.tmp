@@ -1,0 +1,225 @@
+[gd_scene load_steps=14 format=3 uid="uid://dj2xap34v028i"]
+
+[ext_resource type="Texture2D" uid="uid://bomku3lpcadg" path="res://assets/Background.svg" id="1_hxxbx"]
+[ext_resource type="Texture2D" uid="uid://ibwvxplkfilp" path="res://assets/Ground.svg" id="2_0uyu4"]
+[ext_resource type="Texture2D" uid="uid://cldk54gufhnsl" path="res://assets/Arm_Base.svg" id="3_bmvrp"]
+[ext_resource type="Texture2D" uid="uid://cllqwb3atajk0" path="res://assets/Arm_Stem.svg" id="4_bmtic"]
+[ext_resource type="Script" path="res://ClawGrab.gd" id="5_0lklm"]
+[ext_resource type="Texture2D" uid="uid://by6oce8l22817" path="res://assets/Arm_Screw.svg" id="5_b4yja"]
+[ext_resource type="Texture2D" uid="uid://dapibj4uuk02p" path="res://assets/Arm_Grabber.svg" id="6_pg3fa"]
+[ext_resource type="Texture2D" uid="uid://t04idosjio5r" path="res://assets/Arm_Grabber2.svg" id="7_8qs7r"]
+[ext_resource type="Texture2D" uid="uid://bqtyatlbocr33" path="res://assets/Block.svg" id="8_hm1oa"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u43ui"]
+a = Vector2(1917, 20)
+b = Vector2(-3, 20)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bs23u"]
+a = Vector2(970, 995)
+b = Vector2(970, -126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3o26"]
+size = Vector2(52.8162, 85.1218)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj80m"]
+size = Vector2(134, 134)
+
+[node name="Node2D" type="Node2D"]
+metadata/_edit_horizontal_guides_ = []
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -5
+texture = ExtResource("1_hxxbx")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background"]
+
+[node name="Ground" type="Sprite2D" parent="Background/StaticBody2D"]
+position = Vector2(959, 1044)
+texture = ExtResource("2_0uyu4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(3, 968)
+shape = SubResource("SegmentShape2D_u43ui")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(951, -5)
+shape = SubResource("SegmentShape2D_bs23u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(-971, -5)
+shape = SubResource("SegmentShape2D_bs23u")
+
+[node name="ArmBase" type="Sprite2D" parent="."]
+position = Vector2(225, 853)
+texture = ExtResource("3_bmvrp")
+
+[node name="Arm" type="Node2D" parent="ArmBase"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="ArmBase/Arm"]
+position = Vector2(9, 116)
+scale = Vector2(1, -15.2085)
+
+[node name="Bone2D1" type="Bone2D" parent="ArmBase/Arm/Skeleton2D"]
+position = Vector2(1, 0)
+rest = Transform2D(1, 0, 0, 1, 1, 0)
+auto_calculate_length_and_angle = false
+length = 21.0
+bone_angle = 69.0
+
+[node name="Bone2D2" type="Bone2D" parent="ArmBase/Arm/Skeleton2D/Bone2D1"]
+position = Vector2(-114, 19.66)
+rest = Transform2D(1, 0, 0, 1, -114, 19.66)
+
+[node name="Bone2D3" type="Bone2D" parent="ArmBase/Arm/Skeleton2D/Bone2D1/Bone2D2"]
+position = Vector2(35, 20.7778)
+rest = Transform2D(1, 0, 0, 1, 35, 20.7778)
+
+[node name="Bone2D4" type="Bone2D" parent="ArmBase/Arm/Skeleton2D/Bone2D1/Bone2D2/Bone2D3"]
+position = Vector2(249, 12.9533)
+rest = Transform2D(1, 0, 0, 1, 249, 12.9533)
+
+[node name="Bone2D5" type="Bone2D" parent="ArmBase/Arm/Skeleton2D/Bone2D1/Bone2D2/Bone2D3/Bone2D4"]
+position = Vector2(325.124, 1.41066)
+rotation = 3.09996
+rest = Transform2D(-0.999134, 0.0416174, -0.0416174, -0.999134, 325.124, 1.41066)
+auto_calculate_length_and_angle = false
+length = 21.0
+bone_angle = -2.0
+
+[node name="Bone2D6" type="Bone2D" parent="ArmBase/Arm/Skeleton2D/Bone2D1/Bone2D2/Bone2D3/Bone2D4/Bone2D5"]
+position = Vector2(-271.081, -0.732042)
+rotation = 3.13228
+scale = Vector2(1.44751, -0.927978)
+rest = Transform2D(-1.44745, 0.0134798, 0.00864171, 0.927938, -271.081, -0.732042)
+
+[node name="ArmStem" type="Sprite2D" parent="ArmBase/Arm"]
+visible = false
+position = Vector2(9, 116)
+rotation = -0.361283
+texture = ExtResource("4_bmtic")
+centered = false
+offset = Vector2(-50, -368)
+
+[node name="ArmStem" type="Sprite2D" parent="ArmBase/Arm/ArmStem"]
+position = Vector2(-2, -320)
+rotation = 0.472984
+scale = Vector2(1, 1)
+texture = ExtResource("4_bmtic")
+centered = false
+offset = Vector2(-50, -368)
+
+[node name="ArmStem" type="Sprite2D" parent="ArmBase/Arm/ArmStem/ArmStem"]
+position = Vector2(-1, -319)
+rotation = 0.792379
+texture = ExtResource("4_bmtic")
+centered = false
+offset = Vector2(-50, -368)
+
+[node name="ArmStem" type="Sprite2D" parent="ArmBase/Arm/ArmStem/ArmStem/ArmStem"]
+position = Vector2(-1, -319)
+rotation = 0.598648
+texture = ExtResource("4_bmtic")
+centered = false
+offset = Vector2(-50, -368)
+
+[node name="Polygon2D" type="Polygon2D" parent="ArmBase/Arm"]
+position = Vector2(6, 115)
+rotation = -0.342444
+offset = Vector2(-49, -365)
+texture = ExtResource("4_bmtic")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(-0.178925, 0.491158, 97.7803, -0.189117, 99.8211, 417.498, 1.86191, 417.498)
+uv = PackedVector2Array(3, 1, 108, 4, 102, 416, 2, 422)
+
+[node name="Polygon2D2" type="Polygon2D" parent="ArmBase/Arm"]
+position = Vector2(-103, -182)
+rotation = 0.150806
+offset = Vector2(-49, -365)
+texture = ExtResource("4_bmtic")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(-0.178925, 0.491158, 97.7803, -0.189117, 99.8211, 417.498, 1.86191, 417.498)
+uv = PackedVector2Array(3, 1, 108, 4, 102, 416, 2, 422)
+
+[node name="Polygon2D3" type="Polygon2D" parent="ArmBase/Arm"]
+position = Vector2(-69, -497)
+rotation = 0.920412
+scale = Vector2(1, 1)
+offset = Vector2(-49, -365)
+texture = ExtResource("4_bmtic")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(-0.178925, 0.491158, 97.7803, -0.189117, 99.8211, 417.498, 1.86191, 417.498)
+uv = PackedVector2Array(3, 1, 108, 4, 102, 416, 2, 422)
+
+[node name="Polygon2D4" type="Polygon2D" parent="ArmBase/Arm"]
+position = Vector2(178, -698)
+rotation = 1.5371
+scale = Vector2(1, 1)
+offset = Vector2(-49, -365)
+texture = ExtResource("4_bmtic")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(-0.178925, 0.491158, 97.7803, -0.189117, 99.8211, 417.498, 1.86191, 417.498)
+uv = PackedVector2Array(3, 1, 108, 4, 102, 416, 2, 422)
+
+[node name="Polygon2D5" type="Polygon2D" parent="ArmBase/Arm"]
+position = Vector2(506, -716)
+rotation = 2.12337
+scale = Vector2(1, 1)
+offset = Vector2(-49, -365)
+texture = ExtResource("4_bmtic")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(-0.178925, 0.491158, 97.7803, -0.189117, 99.8211, 417.498, 1.86191, 417.498)
+uv = PackedVector2Array(3, 1, 108, 4, 102, 416, 2, 422)
+
+[node name="ArmScrew" type="Sprite2D" parent="ArmBase/Arm/Polygon2D5"]
+z_index = 3
+position = Vector2(-6.92737, -312.789)
+rotation = -1.63014
+scale = Vector2(1, 1)
+texture = ExtResource("5_b4yja")
+script = ExtResource("5_0lklm")
+
+[node name="ArmGrabber" type="Sprite2D" parent="ArmBase/Arm/Polygon2D5/ArmScrew"]
+position = Vector2(0.000244141, 2.00021)
+rotation = -2.22529
+scale = Vector2(1, 1)
+texture = ExtResource("6_pg3fa")
+centered = false
+offset = Vector2(-25, -30)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ArmBase/Arm/Polygon2D5/ArmScrew/ArmGrabber"]
+position = Vector2(-3.05176e-05, 0)
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmBase/Arm/Polygon2D5/ArmScrew/ArmGrabber/StaticBody2D"]
+position = Vector2(33.6934, 226.345)
+rotation = -2.93399
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_l3o26")
+
+[node name="ArmGrabber2" type="Sprite2D" parent="ArmBase/Arm/Polygon2D5/ArmScrew"]
+position = Vector2(0.000183105, 1.00012)
+rotation = -0.881391
+scale = Vector2(1, 1)
+texture = ExtResource("7_8qs7r")
+offset = Vector2(-65, 115)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ArmBase/Arm/Polygon2D5/ArmScrew/ArmGrabber2"]
+position = Vector2(0.955017, -324.027)
+rotation = 3.01244
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmBase/Arm/Polygon2D5/ArmScrew/ArmGrabber2/StaticBody2D"]
+position = Vector2(98.3723, -536.259)
+rotation = -3.19142
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_l3o26")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+z_index = 1
+position = Vector2(1158, 359)
+
+[node name="Block" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_yj80m")
