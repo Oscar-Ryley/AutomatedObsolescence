@@ -1,5 +1,10 @@
 extends Node2D
 
-func _ready():
-	for i in Global.target_grid:
-		pass
+var grid = []
+var rlist = []
+
+signal block_disable
+
+func set_grid():
+	Global.new_target()
+	block_disable.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://drv60fowrrvso"]
+[gd_scene load_steps=32 format=3 uid="uid://drv60fowrrvso"]
 
 [ext_resource type="Texture2D" uid="uid://sxrimxaq7cjy" path="res://assets/Button_Fullscreen.svg" id="1_1mj8h"]
 [ext_resource type="FontFile" uid="uid://t7myjio8eg4q" path="res://fonts/MouldyCheeseRegular-WyMWG.ttf" id="1_7hlp8"]
@@ -12,10 +12,12 @@
 [ext_resource type="Script" path="res://ClawGrab.gd" id="5_0lklm"]
 [ext_resource type="Texture2D" uid="uid://dapibj4uuk02p" path="res://assets/Arm_Grabber.svg" id="6_pg3fa"]
 [ext_resource type="Texture2D" uid="uid://t04idosjio5r" path="res://assets/Arm_Grabber2.svg" id="7_8qs7r"]
+[ext_resource type="Texture2D" uid="uid://bqtyatlbocr33" path="res://assets/Block.svg" id="8_hm1oa"]
 [ext_resource type="Script" path="res://ArmStem.gd" id="8_r8xyg"]
 [ext_resource type="Texture2D" uid="uid://xmcgdcl6kltl" path="res://assets/Block_Transparent.svg" id="9_vteg5"]
 [ext_resource type="Script" path="res://Grid.gd" id="14_jcyaj"]
 [ext_resource type="Script" path="res://Block.gd" id="15_24av1"]
+[ext_resource type="Script" path="res://Blocks.gd" id="15_u02hb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1p6r3"]
 size = Vector2(1032.5, 1587)
@@ -52,6 +54,9 @@ size = Vector2(3767, 82.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ge5yp"]
 size = Vector2(46.375, 45.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj80m"]
+size = Vector2(134, 134)
 
 [node name="Scene" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
@@ -909,6 +914,549 @@ texture = ExtResource("9_vteg5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grid/Row6/Block1-6"]
 position = Vector2(1830, 923)
 shape = SubResource("RectangleShape2D_ge5yp")
+
+[node name="Blocks" type="Node2D" parent="."]
+script = ExtResource("15_u02hb")
+
+[node name="Block" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block2" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block2"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block2"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block2/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block3" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block3"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block3"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block3/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block4" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block4"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block4"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block4/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block5" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block5"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block5"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block5/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block6" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block6"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block6"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block6/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block7" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block7"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block7"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block7/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block8" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block8"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block8"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block8/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block9" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block9"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block9"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block9/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block10" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block10"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block10"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block10/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block11" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block11"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block11"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block11/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block12" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block12"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block12"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block12/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block13" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block13"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block13"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block13/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block14" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block14"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block14"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block14/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block15" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block15"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block15"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block15"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block15/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block16" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block16"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block16"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block16"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block16/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block17" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block17"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block17"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block17"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block17/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block18" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block18"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block18"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block18"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block18/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block19" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block19"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block19"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block19"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block19/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block20" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block20"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block20"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block20"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block20/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block21" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block21"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block21"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block21"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block21/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block22" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block22"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block22"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block22"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block22/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block23" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block23"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block23"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block23"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block23/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block24" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block24"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block24"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block24"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block24/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block25" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block25"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block25"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block25"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block25/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block26" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block26"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block26"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block26"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block26/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block27" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block27"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block27"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block27"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block27/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block28" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block28"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block28"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block28"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block28/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block29" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block29"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block29"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block29"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block29/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block30" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block30"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block30"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block30"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block30/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block31" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block31"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block31"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block31"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block31/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block32" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block32"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block32"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block32"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block32/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block33" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block33"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block33"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block33"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block33/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block34" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block34"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block34"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block34"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block34/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block35" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block35"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block35"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block35"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block35/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Block36" type="RigidBody2D" parent="Blocks"]
+z_index = 6
+position = Vector2(539, 346)
+
+[node name="Block" type="Sprite2D" parent="Blocks/Block36"]
+texture = ExtResource("8_hm1oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block36"]
+shape = SubResource("RectangleShape2D_yj80m")
+
+[node name="Area2D" type="Area2D" parent="Blocks/Block36"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocks/Block36/Area2D"]
+shape = SubResource("RectangleShape2D_yj80m")
 
 [connection signal="toggled" from="FullScreenButton" to="FullScreenButton" method="_on_toggled"]
 [connection signal="body_entered" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_body_entered"]

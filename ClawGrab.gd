@@ -1,19 +1,5 @@
 extends CharacterBody2D
 
-#var last = Vector2(0,0)
-#var max_speed = 500
-#var _velocity = Vector2.ZERO
-
-#func _physics_process(delta: float) -> void:
-#	var target_global_position: Vector2 = get_global_mouse_position()
-#	_velocity = Steering.follow(
-#		_velocity,
-#		global_position,
-#		target_global_position,
-#		max_speed
-#	)
-#	move_and_slide()
-
 var speed = 400
 var stop_down = false
 var stop_up = false
@@ -38,11 +24,6 @@ func _process(delta):
 		position.y -= delta * speed
 	if (Input.is_action_pressed("ui_down") or Input.is_key_pressed(KEY_S)) and stop_down == false:
 		position.y += delta * speed
-		
-	#self.look_at(get_global_mouse_position())
-	#if get_global_mouse_position() != last and position != get_global_mouse_position():
-		#position += transform.x * delta * 500
-		#last = get_global_mouse_position()
 
 func _on_rigid_body_2d_body_entered(body):
 	stop_down = true

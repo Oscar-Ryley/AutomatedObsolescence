@@ -11,6 +11,7 @@ var target_grid = [	[0, 0, 0, 0, 0, 0],
 var rng = RandomNumberGenerator.new()
 var total = 1000
 var two_in_three = [0, 1, 1]
+@export var spawn_object = preload("res://block.tscn")
 
 func new_target():
 	total = 0
@@ -43,8 +44,23 @@ func new_target():
 			if item == 1:
 				total += 1
 
+func _ready():
+	Grid.set_grid()
+	spawn()
+
+var block_array = []
+
+func spawn():
+	for i in block_array:
+		i.queue_free()
+	block_array = []
+	for i in range(1, total):
+		var obj = spawn_object.instantiate()
+		block_array.append(obj)
+		add_child(obj)
+
 func _process(delta):
-	if Input.is_key_pressed(KEY_R):
-		new_target()
 	if covered == total:
-		print("win!")
+		wins += 1
+		Grid.set_grid()
+		spawn()
