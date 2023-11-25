@@ -1,8 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://dj2xap34v028i"]
+[gd_scene load_steps=28 format=3 uid="uid://dj2xap34v028i"]
 
+[ext_resource type="Texture2D" uid="uid://sxrimxaq7cjy" path="res://assets/Button_Fullscreen.svg" id="1_1mj8h"]
 [ext_resource type="Texture2D" uid="uid://bomku3lpcadg" path="res://assets/Background.svg" id="1_hxxbx"]
 [ext_resource type="Texture2D" uid="uid://ibwvxplkfilp" path="res://assets/Ground.svg" id="2_0uyu4"]
+[ext_resource type="Texture2D" uid="uid://donlu3i3bhte1" path="res://assets/Button_Windowed.svg" id="3_73mn4"]
 [ext_resource type="Texture2D" uid="uid://cldk54gufhnsl" path="res://assets/Arm_Base.svg" id="3_bmvrp"]
+[ext_resource type="Script" path="res://FullScreenButton.gd" id="3_l37yl"]
 [ext_resource type="Texture2D" uid="uid://cllqwb3atajk0" path="res://assets/Arm_Stem.svg" id="4_bmtic"]
 [ext_resource type="Script" path="res://ClawGrab.gd" id="5_0lklm"]
 [ext_resource type="Texture2D" uid="uid://dapibj4uuk02p" path="res://assets/Arm_Grabber.svg" id="6_pg3fa"]
@@ -53,6 +56,17 @@ size = Vector2(46.375, 45.625)
 
 [node name="Node2D" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
+
+[node name="FullScreenButton" type="TextureButton" parent="."]
+offset_left = 11.0
+offset_top = 13.0
+offset_right = 92.0
+offset_bottom = 94.0
+toggle_mode = true
+keep_pressed_outside = true
+texture_normal = ExtResource("1_1mj8h")
+texture_pressed = ExtResource("3_73mn4")
+script = ExtResource("3_l37yl")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -5
@@ -650,6 +664,7 @@ texture = ExtResource("8_hm1oa")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
 shape = SubResource("RectangleShape2D_yj80m")
 
+[connection signal="toggled" from="FullScreenButton" to="FullScreenButton" method="_on_toggled"]
 [connection signal="body_entered" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_body_entered"]
 [connection signal="body_exited" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_body_exited"]
 [connection signal="body_entered" from="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3/ArmStem4/RigidBody2D2" to="ArmBase/Arm/CharacterBody2D" method="_on_rigid_body_2d_2_body_entered"]
