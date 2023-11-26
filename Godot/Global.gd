@@ -11,9 +11,9 @@ var target_grid = [	[0, 0, 0, 0, 0, 0],
 var rng = RandomNumberGenerator.new()
 var total = 1000
 var two_in_three = [0, 1, 1]
-@export var spawn_object_block = preload("res://block.tscn")
-@export var spawn_object_square = preload("res://target_square.tscn")
-@export var spawn_object_sign_square = preload("res://sign_square.tscn")
+@export var spawn_object_block = preload("res://Godot/block.tscn")
+@export var spawn_object_square = preload("res://Godot/target_square.tscn")
+@export var spawn_object_sign_square = preload("res://Godot/sign_square.tscn")
 var previous_target_grid = [[0, 0, 0, 0, 0, 0], 
 							[0, 0, 0, 0, 0, 0],
 							[0, 0, 0, 0, 0, 0], 

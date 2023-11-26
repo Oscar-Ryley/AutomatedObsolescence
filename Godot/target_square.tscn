@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://5lnd8cqvt431"]
 
-[ext_resource type="Script" path="res://Block.gd" id="1_eoino"]
-[ext_resource type="Texture2D" uid="uid://xmcgdcl6kltl" path="res://assets/Block_Transparent.svg" id="2_jco0e"]
+[ext_resource type="Script" path="res://Godot/Block.gd" id="1_jdcth"]
+[ext_resource type="Texture2D" uid="uid://xmcgdcl6kltl" path="res://assets/Block_Transparent.svg" id="2_cacl3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avset"]
 size = Vector2(46.375, 45.625)
 
 [node name="Block1-1" type="Area2D"]
-script = ExtResource("1_eoino")
+script = ExtResource("1_jdcth")
 
 [node name="BlockTransparent" type="Sprite2D" parent="."]
 position = Vector2(1829.5, 922.5)
-texture = ExtResource("2_jco0e")
+texture = ExtResource("2_cacl3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1830, 923)

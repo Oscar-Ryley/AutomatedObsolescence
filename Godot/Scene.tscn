@@ -1,21 +1,21 @@
 [gd_scene load_steps=28 format=3 uid="uid://drv60fowrrvso"]
 
-[ext_resource type="Texture2D" uid="uid://sxrimxaq7cjy" path="res://assets/Button_Fullscreen.svg" id="1_1mj8h"]
-[ext_resource type="FontFile" uid="uid://t7myjio8eg4q" path="res://fonts/MouldyCheeseRegular-WyMWG.ttf" id="1_7hlp8"]
-[ext_resource type="Texture2D" uid="uid://bomku3lpcadg" path="res://assets/Background.svg" id="1_hxxbx"]
-[ext_resource type="Texture2D" uid="uid://ibwvxplkfilp" path="res://assets/Ground.svg" id="2_0uyu4"]
-[ext_resource type="Script" path="res://WinsCounter.gd" id="2_mfk1t"]
-[ext_resource type="Texture2D" uid="uid://donlu3i3bhte1" path="res://assets/Button_Windowed.svg" id="3_73mn4"]
-[ext_resource type="Texture2D" uid="uid://cldk54gufhnsl" path="res://assets/Arm_Base.svg" id="3_bmvrp"]
-[ext_resource type="Script" path="res://FullScreenButton.gd" id="3_l37yl"]
-[ext_resource type="Texture2D" uid="uid://cllqwb3atajk0" path="res://assets/Arm_Stem.svg" id="4_bmtic"]
-[ext_resource type="Script" path="res://ClawGrab.gd" id="5_0lklm"]
-[ext_resource type="Texture2D" uid="uid://dapibj4uuk02p" path="res://assets/Arm_Grabber.svg" id="6_pg3fa"]
-[ext_resource type="Texture2D" uid="uid://t04idosjio5r" path="res://assets/Arm_Grabber2.svg" id="7_8qs7r"]
-[ext_resource type="Texture2D" uid="uid://ct2tjp85j3xor" path="res://assets/Movement_Instructions.png" id="8_nsmhh"]
-[ext_resource type="Script" path="res://ArmStem.gd" id="8_r8xyg"]
-[ext_resource type="Script" path="res://SignMovementInstructions.gd" id="9_w787f"]
-[ext_resource type="Script" path="res://QuoteOutput.gd" id="10_k1iro"]
+[ext_resource type="Texture2D" uid="uid://bomku3lpcadg" path="res://assets/Background.svg" id="1_iyk8y"]
+[ext_resource type="Texture2D" uid="uid://ibwvxplkfilp" path="res://assets/Ground.svg" id="2_h6abp"]
+[ext_resource type="Texture2D" uid="uid://ct2tjp85j3xor" path="res://assets/Movement_Instructions.png" id="3_nq7c7"]
+[ext_resource type="Script" path="res://Godot/SignMovementInstructions.gd" id="4_2i262"]
+[ext_resource type="FontFile" uid="uid://t7myjio8eg4q" path="res://fonts/MouldyCheeseRegular-WyMWG.ttf" id="5_l8mnk"]
+[ext_resource type="Script" path="res://Godot/WinsCounter.gd" id="6_vuam8"]
+[ext_resource type="Texture2D" uid="uid://sxrimxaq7cjy" path="res://assets/Button_Fullscreen.svg" id="7_cltn6"]
+[ext_resource type="Texture2D" uid="uid://donlu3i3bhte1" path="res://assets/Button_Windowed.svg" id="8_j1p8k"]
+[ext_resource type="Script" path="res://Godot/FullScreenButton.gd" id="9_hkedk"]
+[ext_resource type="Script" path="res://Godot/QuoteOutput.gd" id="10_3dktk"]
+[ext_resource type="Texture2D" uid="uid://cldk54gufhnsl" path="res://assets/Arm_Base.svg" id="11_0qu65"]
+[ext_resource type="Script" path="res://Godot/ClawGrab.gd" id="12_1xoj5"]
+[ext_resource type="Texture2D" uid="uid://dapibj4uuk02p" path="res://assets/Arm_Grabber.svg" id="13_q02wy"]
+[ext_resource type="Texture2D" uid="uid://t04idosjio5r" path="res://assets/Arm_Grabber2.svg" id="14_vx86f"]
+[ext_resource type="Texture2D" uid="uid://cllqwb3atajk0" path="res://assets/Arm_Stem.svg" id="15_bfkvq"]
+[ext_resource type="Script" path="res://Godot/ArmStem.gd" id="16_covqn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1p6r3"]
 size = Vector2(1032.5, 1587)
@@ -56,14 +56,14 @@ metadata/_edit_vertical_guides_ = [-102.0]
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -5
-texture = ExtResource("1_hxxbx")
+texture = ExtResource("1_iyk8y")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background"]
 
 [node name="Ground" type="Sprite2D" parent="Background/StaticBody2D"]
 position = Vector2(959, 1044)
-texture = ExtResource("2_0uyu4")
+texture = ExtResource("2_h6abp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D"]
 position = Vector2(-516.75, 756.5)
@@ -85,8 +85,8 @@ shape = SubResource("RectangleShape2D_48n0i")
 z_index = 6
 position = Vector2(102, 769)
 scale = Vector2(0.0616404, 0.0616404)
-texture = ExtResource("8_nsmhh")
-script = ExtResource("9_w787f")
+texture = ExtResource("3_nq7c7")
+script = ExtResource("4_2i262")
 
 [node name="Use" type="Label" parent="Background/Controls"]
 offset_left = -1557.42
@@ -97,7 +97,7 @@ scale = Vector2(9.95266, 9.18457)
 theme_override_colors/font_color = Color(0.976471, 0.796078, 0.25098, 1)
 theme_override_colors/font_outline_color = Color(0.937255, 0.513726, 0.329412, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("1_7hlp8")
+theme_override_fonts/font = ExtResource("5_l8mnk")
 theme_override_font_sizes/font_size = 40
 text = "The Claw"
 
@@ -110,7 +110,7 @@ scale = Vector2(11.2809, 11.8892)
 theme_override_colors/font_color = Color(0.976471, 0.796078, 0.25098, 1)
 theme_override_colors/font_outline_color = Color(0.937255, 0.513726, 0.329412, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("1_7hlp8")
+theme_override_fonts/font = ExtResource("5_l8mnk")
 theme_override_font_sizes/font_size = 40
 text = "follows"
 
@@ -123,7 +123,7 @@ scale = Vector2(9.46334, 9.97369)
 theme_override_colors/font_color = Color(0.976471, 0.796078, 0.25098, 1)
 theme_override_colors/font_outline_color = Color(0.937255, 0.513726, 0.329412, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("1_7hlp8")
+theme_override_fonts/font = ExtResource("5_l8mnk")
 theme_override_font_sizes/font_size = 40
 text = "movement"
 
@@ -135,11 +135,12 @@ offset_bottom = 67.0
 theme_override_colors/font_color = Color(0.976471, 0.796078, 0.25098, 1)
 theme_override_colors/font_outline_color = Color(0.937255, 0.513726, 0.329412, 1)
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("1_7hlp8")
+theme_override_fonts/font = ExtResource("5_l8mnk")
 theme_override_font_sizes/font_size = 40
-script = ExtResource("2_mfk1t")
+script = ExtResource("6_vuam8")
 
 [node name="WinsCounter" type="Label" parent="Background/WinsCounter"]
+layout_mode = 0
 offset_left = -157.0
 offset_top = -2.0
 offset_right = -20.0
@@ -147,7 +148,7 @@ offset_bottom = 41.0
 theme_override_colors/font_color = Color(0.976471, 0.796078, 0.25098, 1)
 theme_override_colors/font_outline_color = Color(0.937255, 0.513726, 0.329412, 1)
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("1_7hlp8")
+theme_override_fonts/font = ExtResource("5_l8mnk")
 theme_override_font_sizes/font_size = 40
 text = "Version"
 
@@ -158,9 +159,9 @@ offset_right = 92.0
 offset_bottom = 94.0
 toggle_mode = true
 keep_pressed_outside = true
-texture_normal = ExtResource("1_1mj8h")
-texture_pressed = ExtResource("3_73mn4")
-script = ExtResource("3_l37yl")
+texture_normal = ExtResource("7_cltn6")
+texture_pressed = ExtResource("8_j1p8k")
+script = ExtResource("9_hkedk")
 
 [node name="WinsCounter2" type="Label" parent="Background"]
 offset_left = 328.0
@@ -171,13 +172,13 @@ scale = Vector2(0.696472, 0.696472)
 theme_override_colors/font_color = Color(0.976471, 0.796078, 0.25098, 1)
 theme_override_colors/font_outline_color = Color(0.937255, 0.513726, 0.329412, 1)
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("1_7hlp8")
+theme_override_fonts/font = ExtResource("5_l8mnk")
 theme_override_font_sizes/font_size = 40
-script = ExtResource("10_k1iro")
+script = ExtResource("10_3dktk")
 
 [node name="ArmBase" type="Sprite2D" parent="."]
 position = Vector2(225, 853)
-texture = ExtResource("3_bmvrp")
+texture = ExtResource("11_0qu65")
 
 [node name="Arm" type="Node2D" parent="ArmBase"]
 
@@ -185,7 +186,7 @@ texture = ExtResource("3_bmvrp")
 z_index = 3
 position = Vector2(775, -557)
 rotation = 2.10138
-script = ExtResource("5_0lklm")
+script = ExtResource("12_1xoj5")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="ArmBase/Arm/CharacterBody2D"]
 texture_filter = 1
@@ -193,7 +194,7 @@ texture_filter = 1
 [node name="ArmGrabber" type="Sprite2D" parent="ArmBase/Arm/CharacterBody2D/CharacterBody2D"]
 position = Vector2(0.46814, 0.93396)
 rotation = -2.26574
-texture = ExtResource("6_pg3fa")
+texture = ExtResource("13_q02wy")
 centered = false
 offset = Vector2(-25, -30)
 
@@ -218,7 +219,7 @@ rotation = -0.921845
 
 [node name="ArmGrabber2" type="Sprite2D" parent="ArmBase/Arm/CharacterBody2D/CharacterBody2D2"]
 position = Vector2(0.00012207, 6.10352e-05)
-texture = ExtResource("7_8qs7r")
+texture = ExtResource("14_vx86f")
 offset = Vector2(-65, 115)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArmBase/Arm/CharacterBody2D/CharacterBody2D2"]
@@ -251,10 +252,10 @@ update_rotation = false
 z_index = 1
 position = Vector2(-2.73711, -0.71283)
 rotation = -2.10138
-texture = ExtResource("4_bmtic")
+texture = ExtResource("15_bfkvq")
 centered = false
 offset = Vector2(-50, -368)
-script = ExtResource("8_r8xyg")
+script = ExtResource("16_covqn")
 
 [node name="RemoteTransform2D2" type="RemoteTransform2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1"]
 position = Vector2(-2.99988, -325)
@@ -265,7 +266,7 @@ update_rotation = false
 [node name="ArmStem2" type="Sprite2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1"]
 z_index = 1
 position = Vector2(-2.99988, -325)
-texture = ExtResource("4_bmtic")
+texture = ExtResource("15_bfkvq")
 centered = false
 offset = Vector2(-50, -368)
 
@@ -278,7 +279,7 @@ update_rotation = false
 [node name="ArmStem3" type="Sprite2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2"]
 z_index = 1
 position = Vector2(-1, -312)
-texture = ExtResource("4_bmtic")
+texture = ExtResource("15_bfkvq")
 centered = false
 offset = Vector2(-50, -368)
 
@@ -291,7 +292,7 @@ update_rotation = false
 [node name="ArmStem4" type="Sprite2D" parent="ArmBase/Arm/CharacterBody2D/ArmStem1/ArmStem2/ArmStem3"]
 z_index = 1
 position = Vector2(-1, -312)
-texture = ExtResource("4_bmtic")
+texture = ExtResource("15_bfkvq")
 centered = false
 offset = Vector2(-50, -368)
 
@@ -347,7 +348,7 @@ shape = SubResource("RectangleShape2D_vx1to")
 z_index = 1
 position = Vector2(9, 111)
 rotation = 0.0584325
-texture = ExtResource("4_bmtic")
+texture = ExtResource("15_bfkvq")
 centered = false
 offset = Vector2(-50, -368)
 
@@ -355,7 +356,7 @@ offset = Vector2(-50, -368)
 z_index = 1
 position = Vector2(25, -218)
 rotation = -0.125209
-texture = ExtResource("4_bmtic")
+texture = ExtResource("15_bfkvq")
 centered = false
 offset = Vector2(-50, -368)
 
@@ -363,7 +364,7 @@ offset = Vector2(-50, -368)
 z_index = 1
 position = Vector2(-16, -541)
 rotation = 0.15055
-texture = ExtResource("4_bmtic")
+texture = ExtResource("15_bfkvq")
 centered = false
 offset = Vector2(-50, -368)
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dp67icb4t5d3p"]
 
-[ext_resource type="Texture2D" uid="uid://bqtyatlbocr33" path="res://assets/Block.svg" id="1_1ehtx"]
+[ext_resource type="Texture2D" uid="uid://bqtyatlbocr33" path="res://assets/Block.svg" id="1_evtnp"]
 
 [node name="BlockTransparent" type="Sprite2D"]
 z_index = 1
 position = Vector2(174, 820)
 scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_1ehtx")
+texture = ExtResource("1_evtnp")
