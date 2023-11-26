@@ -26,11 +26,10 @@ func new_target():
 	var one_in_x = [0, 1]
 	for i in range(wins, 5):
 		one_in_x.append(0)
-	
 	var one_in_x_g4 = [0, 1, 0]
 	for i in range(wins, 10):
 		one_in_x_g4.append(0)
-		
+
 	var one_in_x_top = [0, 1, 0, 0]
 	for i in range(wins, 20):
 		one_in_x_top.append(0)
@@ -71,6 +70,7 @@ func new_target():
 func _ready():
 	new_target()
 	spawn_block()
+	quote = "Press the button in the top left to fullscreen"
 
 var block_array = []
 
@@ -132,8 +132,25 @@ func spawn_sign_squares():
 				add_child(obj)
 			index += 1
 
+var quote = ""
+var quotes = ["This was made over 24 hours for LanHack 2023", 
+			"The Luddites were a group of workers who destroyed machinery in the 17th century", 
+			"This was only my second time using godot and second ever Hackathon",
+			"In American Law, a constructive dismissal may include training a replacement",
+			"Beat your maker is a play on meet your maker",
+			"By tracking employee activity, some companies these days are training Ai replacements",
+			"One of the first uses of automation was the Egyptian Water Clock",
+			"This project is hosted on github, with it's main page on Devpost",
+			"Keep going, you've got this!"]
+func change_quote():
+	if wins == 42:
+		quote = "The meaning of life, the universe and everything - 'Deep Thought'"
+	else:
+		quote = quotes[rng.randi_range(0,len(quotes)-1)]
+
 func _process(delta):
 	if covered == total:
 		wins += 1
 		new_target()
 		spawn_block()
+		change_quote()

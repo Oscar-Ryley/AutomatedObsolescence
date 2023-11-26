@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://drv60fowrrvso"]
+[gd_scene load_steps=28 format=3 uid="uid://drv60fowrrvso"]
 
 [ext_resource type="Texture2D" uid="uid://sxrimxaq7cjy" path="res://assets/Button_Fullscreen.svg" id="1_1mj8h"]
 [ext_resource type="FontFile" uid="uid://t7myjio8eg4q" path="res://fonts/MouldyCheeseRegular-WyMWG.ttf" id="1_7hlp8"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ct2tjp85j3xor" path="res://assets/Movement_Instructions.png" id="8_nsmhh"]
 [ext_resource type="Script" path="res://ArmStem.gd" id="8_r8xyg"]
 [ext_resource type="Script" path="res://SignMovementInstructions.gd" id="9_w787f"]
+[ext_resource type="Script" path="res://QuoteOutput.gd" id="10_k1iro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1p6r3"]
 size = Vector2(1032.5, 1587)
@@ -133,6 +134,7 @@ offset_right = 1830.0
 offset_bottom = 67.0
 theme_override_colors/font_color = Color(0.976471, 0.796078, 0.25098, 1)
 theme_override_colors/font_outline_color = Color(0.937255, 0.513726, 0.329412, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1_7hlp8")
 theme_override_font_sizes/font_size = 40
 script = ExtResource("2_mfk1t")
@@ -144,6 +146,7 @@ offset_right = -20.0
 offset_bottom = 41.0
 theme_override_colors/font_color = Color(0.976471, 0.796078, 0.25098, 1)
 theme_override_colors/font_outline_color = Color(0.937255, 0.513726, 0.329412, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1_7hlp8")
 theme_override_font_sizes/font_size = 40
 text = "Version"
@@ -158,6 +161,19 @@ keep_pressed_outside = true
 texture_normal = ExtResource("1_1mj8h")
 texture_pressed = ExtResource("3_73mn4")
 script = ExtResource("3_l37yl")
+
+[node name="WinsCounter2" type="Label" parent="Background"]
+offset_left = 328.0
+offset_top = 37.0
+offset_right = 368.0
+offset_bottom = 77.0
+scale = Vector2(0.696472, 0.696472)
+theme_override_colors/font_color = Color(0.976471, 0.796078, 0.25098, 1)
+theme_override_colors/font_outline_color = Color(0.937255, 0.513726, 0.329412, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_7hlp8")
+theme_override_font_sizes/font_size = 40
+script = ExtResource("10_k1iro")
 
 [node name="ArmBase" type="Sprite2D" parent="."]
 position = Vector2(225, 853)
