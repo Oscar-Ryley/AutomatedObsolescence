@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://2tavf5gx8mea"]
+
+[ext_resource type="Script" path="res://intro.gd" id="1_i2yo8"]
+[ext_resource type="Texture2D" uid="uid://ct2tjp85j3xor" path="res://assets/Movement_Instructions.png" id="2_htgyu"]
+[ext_resource type="Texture2D" uid="uid://ldsjlhn7xui4" path="res://assets/Background_Titles.svg" id="3_0we0f"]
+
+[sub_resource type="Animation" id="Animation_kb3h0"]
+resource_name = "Fade In"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_203oe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gfgxe"]
+resource_name = "Fade Out"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lf1tu"]
+_data = {
+"Fade In": SubResource("Animation_kb3h0"),
+"Fade Out": SubResource("Animation_gfgxe"),
+"RESET": SubResource("Animation_203oe")
+}
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_i2yo8")
+
+[node name="MovementInstructions" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1029, 564)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_htgyu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -15.0
+offset_top = -18.0
+offset_right = 25.0
+offset_bottom = 22.0
+scale = Vector2(48.9758, 27.703)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lf1tu")
+}
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_0we0f")

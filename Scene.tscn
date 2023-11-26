@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://drv60fowrrvso"]
+[gd_scene load_steps=27 format=3 uid="uid://drv60fowrrvso"]
 
 [ext_resource type="Texture2D" uid="uid://sxrimxaq7cjy" path="res://assets/Button_Fullscreen.svg" id="1_1mj8h"]
 [ext_resource type="FontFile" uid="uid://t7myjio8eg4q" path="res://fonts/MouldyCheeseRegular-WyMWG.ttf" id="1_7hlp8"]
@@ -12,7 +12,9 @@
 [ext_resource type="Script" path="res://ClawGrab.gd" id="5_0lklm"]
 [ext_resource type="Texture2D" uid="uid://dapibj4uuk02p" path="res://assets/Arm_Grabber.svg" id="6_pg3fa"]
 [ext_resource type="Texture2D" uid="uid://t04idosjio5r" path="res://assets/Arm_Grabber2.svg" id="7_8qs7r"]
+[ext_resource type="Texture2D" uid="uid://ct2tjp85j3xor" path="res://assets/Movement_Instructions.png" id="8_nsmhh"]
 [ext_resource type="Script" path="res://ArmStem.gd" id="8_r8xyg"]
+[ext_resource type="Script" path="res://SignMovementInstructions.gd" id="9_w787f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1p6r3"]
 size = Vector2(1032.5, 1587)
@@ -49,6 +51,7 @@ size = Vector2(3767, 82.5)
 
 [node name="Scene" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
+metadata/_edit_vertical_guides_ = [-102.0]
 
 [node name="WinsCounter" type="Label" parent="."]
 offset_left = 1790.0
@@ -109,6 +112,52 @@ shape = SubResource("RectangleShape2D_gpypo")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Background/StaticBody2D"]
 position = Vector2(960, 1270.5)
 shape = SubResource("RectangleShape2D_48n0i")
+
+[node name="Controls" type="Sprite2D" parent="Background"]
+z_index = 6
+position = Vector2(102, 769)
+scale = Vector2(0.0616404, 0.0616404)
+texture = ExtResource("8_nsmhh")
+script = ExtResource("9_w787f")
+
+[node name="Use" type="Label" parent="Background/Controls"]
+offset_left = -1557.42
+offset_top = 405.579
+offset_right = -1393.42
+offset_bottom = 448.579
+scale = Vector2(9.95266, 9.18457)
+theme_override_colors/font_color = Color(0.976471, 0.796078, 0.25098, 1)
+theme_override_colors/font_outline_color = Color(0.937255, 0.513726, 0.329412, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_7hlp8")
+theme_override_font_sizes/font_size = 40
+text = "The Claw"
+
+[node name="Use2" type="Label" parent="Background/Controls"]
+offset_left = -1346.52
+offset_top = 794.934
+offset_right = -1193.52
+offset_bottom = 837.934
+scale = Vector2(11.2809, 11.8892)
+theme_override_colors/font_color = Color(0.976471, 0.796078, 0.25098, 1)
+theme_override_colors/font_outline_color = Color(0.937255, 0.513726, 0.329412, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_7hlp8")
+theme_override_font_sizes/font_size = 40
+text = "follows"
+
+[node name="Use3" type="Label" parent="Background/Controls"]
+offset_left = -1541.2
+offset_top = -1362.74
+offset_right = -1343.2
+offset_bottom = -1319.74
+scale = Vector2(9.46334, 9.97369)
+theme_override_colors/font_color = Color(0.976471, 0.796078, 0.25098, 1)
+theme_override_colors/font_outline_color = Color(0.937255, 0.513726, 0.329412, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_7hlp8")
+theme_override_font_sizes/font_size = 40
+text = "movement"
 
 [node name="ArmBase" type="Sprite2D" parent="."]
 position = Vector2(225, 853)
