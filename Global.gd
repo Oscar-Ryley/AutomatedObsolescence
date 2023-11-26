@@ -141,10 +141,11 @@ var quotes = ["This was made over 24 hours for LanHack 2023",
 			"By tracking employee activity, some companies these days are training Ai replacements",
 			"One of the first uses of automation was the Egyptian Water Clock",
 			"This project is hosted on github, with it's main page on Devpost",
-			"Keep going, you've got this!"]
+			"Keep going, you've got this!",
+			"I was visually inspired by the imagery on the LanHack website"]
 func change_quote():
 	if wins == 42:
-		quote = "The meaning of life, the universe and everything - 'Deep Thought'"
+		quote = "'The meaning of life, the universe and everything' - 'Deep Thought'"
 	else:
 		quote = quotes[rng.randi_range(0,len(quotes)-1)]
 
