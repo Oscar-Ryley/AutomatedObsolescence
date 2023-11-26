@@ -22,6 +22,19 @@ var previous_target_grid = [[0, 0, 0, 0, 0, 0],
 							[0, 0, 0, 0, 0, 0] ]
 
 func new_target():
+	#using wins to alter chances of getting higher stacks
+	var one_in_x = [0, 1]
+	for i in range(wins, 5):
+		one_in_x.append(0)
+	
+	var one_in_x_g4 = [0, 1, 0]
+	for i in range(wins, 10):
+		one_in_x_g4.append(0)
+		
+	var one_in_x_top = [0, 1, 0, 0]
+	for i in range(wins, 20):
+		one_in_x_top.append(0)
+	
 	total = 0
 	target_grid =  [[0, 0, 0, 0, 0, 0], 
 					[0, 0, 0, 0, 0, 0],
@@ -33,19 +46,19 @@ func new_target():
 	#instead of all of these loops, should really loop backwards through the array from 4 back to 0
 	for item in range(0, 5):
 		if target_grid[5][item] == 1:
-			target_grid[4][item] = rng.randi_range(0,1)
+			target_grid[4][item] = one_in_x[rng.randi_range(0,len(one_in_x)-1)]
 	for item in range(0, 5):
 		if target_grid[4][item] == 1:
-			target_grid[3][item] = rng.randi_range(0,1)
+			target_grid[3][item] = one_in_x[rng.randi_range(0,len(one_in_x)-1)]
 	for item in range(0, 5):
 		if target_grid[3][item] == 1:
-			target_grid[2][item] = rng.randi_range(0,1)
+			target_grid[2][item] = one_in_x_g4[rng.randi_range(0,len(one_in_x_g4)-1)]
 	for item in range(0, 5):
 		if target_grid[2][item] == 1:
-			target_grid[1][item] = rng.randi_range(0,1)
+			target_grid[1][item] = one_in_x_g4[rng.randi_range(0,len(one_in_x_g4)-1)]
 	for item in range(0, 5):
 		if target_grid[1][item] == 1:
-			target_grid[0][item] = rng.randi_range(0,1)
+			target_grid[0][item] = one_in_x_top[rng.randi_range(0,len(one_in_x_top)-1)]
 	
 	for row in target_grid:
 		for item in row:
