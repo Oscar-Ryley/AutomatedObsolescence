@@ -1,6 +1,8 @@
 # Automated Obsolescence
 ## Beat your maker
 
+Copyright © 2022-2023 Oscar Ryley. All rights reserved
+
 ### Inspiration
 
 This project was inspired by recent reading of Douglas Adams' 'Hitchhiker's Guide to the Galaxy' - especially the supercomputer character 'Deep Thought' which is constantly aware that it is only the 2nd most powerful computer to ever exist, and that it would be the only thing capable of creating a computer powerful enough to hold that title.
