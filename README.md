@@ -1,7 +1,7 @@
 # Automated Obsolescence
 ## Beat your maker
 
-Copyright © 2022-2023 Oscar Ryley. All rights reserved
+Copyright © 2023 Oscar Ryley. All rights reserved
 
 ### Inspiration
 
